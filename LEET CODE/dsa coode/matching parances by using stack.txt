@@ -1,0 +1,81 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include <string>
+using namespace std;
+struct stack {
+    string s1;
+    int arr[100];
+    int top=-1;
+    bool isempty (){
+      return top==-1;
+        
+    }
+    void puch(int value)
+    {
+       // if(isempty())
+         if(top<99)
+        {
+            top++;
+            arr[top]=value;
+        }
+        else cout<<"stack underflaw\n";
+        //}
+        
+    }
+    void pop (){
+        if(!isempty()){
+            top--;
+        }
+        else cout<<"stack ovflaw\n";
+    }
+    char peak(){
+        if(isempty()) return false;
+        else
+        return arr[top];
+    }
+
+};
+bool ispair (char open,char close){
+    if(open=='('&&close==')')return true;
+    if(open=='{'&&close=='}')return true;
+    if(open=='['&&close==']')return true;
+    else return false;
+}
+bool BALNCED (string expr){
+    stack stk;
+    for (char ch:expr){
+        if(ch=='('|| ch =='{'|| ch=='['){
+            stk.puch(ch);
+        }
+        else if (ch==')'|| ch =='}'|| ch==']')
+        {
+            if(stk.isempty())return false;
+            else if(!ispair(stk.peak(),ch))return false;
+            stk.pop();
+        }
+         
+    } 
+    if(stk.isempty())return true;
+    else return false;
+    
+}
+int main()
+{
+stack stk;
+string s ;
+cin>>s;
+if( BALNCED(s)) 
+cout<<"matching"<<endl;
+else 
+cout<<"unmaching"<<endl;
+  
+
+    return 0;
+}

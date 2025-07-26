@@ -1,0 +1,82 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <iomanip>
+#include<string>
+#include<algorithm>
+#include <set>
+#include<queue>
+#include<deque>
+using namespace std;
+void dequ_back(deque<int > d)
+{
+     while(!d.empty())
+    {
+        cout <<d.back()<<endl;
+        d.pop_back();
+    }
+    cout <<endl;
+}
+void deque_front(deque<int>de)
+{
+     while(!de.empty())
+    {
+        cout <<de.front()<<endl;
+        de.pop_front();
+    }
+}
+using namespace std;
+int main()
+{
+
+    queue<int>q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    q.push(4);
+
+    cout<<"last elemnet is :"<< q.back()<<endl;
+    cout <<"queue elemnt is "<<endl;
+    while(!q.empty())
+    {
+        cout <<q.front()<<endl;
+        q.pop();
+    }
+
+    queue<string>qe;
+    qe.push("hasnaa");
+    string s=qe.front();
+    cout <<s<<endl;
+
+    deque<int >dee;
+    dee.push_back(10);
+    dee.push_back(20);
+    dee.push_back(30);
+    dee.push_front(0);
+    dee.push_back(78);
+    dequ_back(dee);
+    deque_front(dee);
+
+
+    return 0;
+}
+/tmp/09OaPS51LI.o
+last elemnet is :4
+queue elemnt is 
+1
+2
+3
+4
+hasnaa
+78
+30
+20
+10
+0
+
+0
+10
+20
+30
+78
+
+

@@ -1,0 +1,109 @@
+
+#include <iostream>
+#include<stack>
+using namespace std;
+void init(){
+    cin.tie(0);
+    cin.sync_with_stdio(0);
+}
+void push(stack<long long>&s,stack<long long>&max_s,long long n)
+{
+     s.push(n);
+     if (max_s.empty()||n>=max_s.top())
+       {
+            max_s.push(n);
+       }
+       else
+       {
+        max_s.push(max_s.top());
+       }
+       cout <<max_s.top()<<endl;
+}
+void pob(stack<long long>&s,stack <long long >&max_s)
+{
+    if(!s.empty())
+      {
+          s.pop();
+        max_s.pop();
+
+      if (!max_s.empty())
+       cout <<max_s.top()<<endl;
+      }
+      else
+        return;
+}
+int main()
+{  init();
+   int test;
+   cin>>test;
+   stack<long long>s ;
+   stack<long long>st ;
+   while(test--)
+   {
+       int x;
+       long long val;
+       cin>>x;
+       if (x==1)
+       {
+           cin>>val;
+           push(s,st,val);
+       }
+       else if (x==2)
+       {
+           pob(s,st);
+       }
+   }
+    return 0;
+}
+
+/*
+#include <iostream>
+#include<vector>
+#include<stack>
+
+using namespace std;
+#include <iostream>
+#include <stack>
+using namespace std;
+
+void PUSH(stack<int>& s, stack<int>& maxStack, int num) {
+    s.push(num);
+    if (maxStack.empty() || num >= maxStack.top()) {
+        maxStack.push(num);
+    } else {
+        maxStack.push(maxStack.top());
+    }
+    cout << maxStack.top() << endl;
+}
+
+void POP(stack<int>& s, stack<int>& maxStack) {
+    if (!s.empty()) {
+        s.pop();
+        maxStack.pop();
+        if (!maxStack.empty()) {
+            cout << maxStack.top() << endl;
+        }
+    }
+    }
+
+
+int main() {
+    int test;
+    cin >> test;
+    stack<int> s;
+    stack<int> maxStack;
+
+    while (test--) {
+        int x, val;
+        cin >> x;
+
+        if (x == 1) {
+            cin >> val;
+            PUSH(s, maxStack, val);
+        } else if (x == 2) {
+            POP(s, maxStack);
+        }
+    }
+    return 0;
+}
+*/

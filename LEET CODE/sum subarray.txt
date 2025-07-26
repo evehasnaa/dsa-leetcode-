@@ -1,0 +1,57 @@
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    int rangeSum(std::vector<int>& nums, int n, int left, int right) {
+     std::vector<long long> subarraySums;
+    
+        for (int i=0;i<n;i++){
+            int sum=0;
+            for (int j=i;j<n;j++){
+                sum+=nums[j];
+                subarraySums.push_back(sum);
+            }
+        }
+       std:: sort(subarraySums.begin(),subarraySums.end());
+        int res=0;
+        int mod=1e9+7;
+        for (int i=left-1;i<right;i++){
+            res+=subarraySums[i];
+            res%=mod;
+        } return  res;
+    }
+};
+
+
+
+
+++++++++++++++++++++++++++++++++++++++
+
+
+
+
+#include <vector>
+#include <algorithm>
+
+class Solution {
+public:
+    int rangeSum(std::vector<int>& nums, int n, int left, int right) {
+     std::vector<long long> subarraySums;
+    
+        for (int i=0;i<n;i++){
+            int sum=0;
+            for (int j=i;j<n;j++){
+                sum+=nums[j];
+                subarraySums.push_back(sum);
+            }
+        }
+       std::partial_sort(subarraySums.begin(),subarraySums.begin()+n+1,subarraySums.end());
+        int res=0;
+        int mod=1e9+7;
+        for (int i=left-1;i<right;i++){
+            res+=subarraySums[i];
+            res%=mod;
+        } return  res;
+    }
+};

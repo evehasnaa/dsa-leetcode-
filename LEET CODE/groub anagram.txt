@@ -1,0 +1,45 @@
+class Solution {
+public:
+    vector<vector<string>> groupAnagrams(vector<string>& strs) {
+     /*   
+        vector <string> anagram;
+      
+        map<map <char,int >,vector<string>>anagramtomap;
+        for (int i=0;i<strs.size();i++)
+        {
+          string  str=strs[i];
+             map <char,int >freqmap;
+            for (int j=0;j<strs.size();j++)
+            {
+                 freqmap[str[j]]++;
+              anagramtomap[freqmap].push_back(str)  ;
+            }
+        }
+        vector <vector <string >>v;
+        for (auto & [key,value]:anagramtomap)
+        {
+            v.push_back(value);
+            
+        }return v;
+    
+    }*/
+
+   
+   unordered_map<string ,vector <string>> mp;
+    for (auto x:strs){
+           string str=x;
+            sort (str.begin(),str.end());
+
+          
+    mp[str].push_back(x);
+    }
+
+    vector <vector <string >>anagram;
+
+    for (auto x: mp)
+    {
+        anagram.push_back(x.second);
+
+    } return anagram;
+    }
+};

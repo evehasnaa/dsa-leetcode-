@@ -1,0 +1,27 @@
+
+int sum (int num)
+{   int su=0;
+    while (num)
+    {
+        su+=num%10;
+        num/=10;
+    }
+    return su;
+}
+class Solution {
+public:
+    int addDigits(int num) {
+      while (num/10)
+      {
+        num=sum(num);
+      }
+      return num;
+    }
+};
+/*
+if (num==0)return 0;
+if (num%9==0)
+return 9;
+else
+return num%9;
+*/

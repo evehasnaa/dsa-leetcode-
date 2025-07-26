@@ -1,0 +1,112 @@
+#include <iostream>
+#include<string>
+#include<iomanip>
+#include <cctype>
+using namespace std;
+
+int main()
+{
+    /*
+ long long x,y,z,n;
+ cin>>x>>y>>z>>n;
+ long long X=(x*y)-(z*n);
+ cout<<"Difference = "<<X<<endl;
+
+   long long n,m;
+   cin>>n>>m;
+   long long  digit =0;
+
+   digit+=n%10;
+   digit+=m%10;
+   cout <<digit<<endl;
+   */
+   /*
+   long long m,n;
+   cin>>m>>n;
+   if (m%n==0 || n%m==0)
+    cout <<"Multiples"<<endl;
+   else
+       cout <<"No Multiples"<<endl;
+
+   long long n,m;
+   cin>>n>>m;
+   if (n>=m)
+    cout <<"Yes"<<endl;
+   else
+    cout <<"No"<<endl;
+
+    int n;
+   cin>>n;
+   if ( n%10==0)
+    cout <<"int"<<n<<endl;
+   else
+     cout <<fixed<<"float"<< n<<setprecision(3)<<endl;
+
+     long long a,b;
+     char c;
+
+     cin>>a>>c>>b;
+     if (c=='+')
+        cout<<a+b<<endl;
+     else if (c=='*')
+        cout <<a*b<<endl;
+     else if(c=='-')
+        cout <<a-b<<endl;
+     else if (c=='/')
+     {
+         if (b!=0)
+         cout <<a/b<<endl;
+
+
+     }
+
+     long long  a,b;
+     cin>>a>>b;
+     cout <<b%a<<endl;
+
+int t;
+cin>>t;
+while(t--)
+{
+        long long x,y,z;
+        cin>>x>>y>>z;
+        if (x+y>=10||x+z>=10||y+z>=10)
+            cout <<"Yes"<<endl;
+        else
+            cout <<"No"<<endl;
+}
+
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long a,b,c;
+        cin>>a>>b>>c;
+        if (a+b==c)
+            cout <<"+"<<endl;
+        else if (a-b==c)
+            cout <<"-"<<endl;
+    }
+    */
+    char c;
+    cin>>c;
+   // if (c>=0 && c<=9)
+   if (isdigit(c))
+        cout <<"IS DIGIT"<<endl;
+    else
+    {
+        if (isupper(c))
+           {
+                cout <<"ALPHA"<<endl;
+                cout <<"IS CAPITAL"<<endl;
+
+           }
+           else{
+                cout <<"ALPHA"<<endl;
+                cout <<"IS SMALL"<<endl;
+           }
+
+    }
+    return 0;
+
+}

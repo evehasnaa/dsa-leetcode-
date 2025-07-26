@@ -1,0 +1,117 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{    cin.tie(0);
+    cin.sync_with_stdio(0);
+    /*
+    long long x,y ;
+    cin>>x>>y;
+    cout <<x*y<<endl;
+    */
+    /*
+    int x1,y1,x2,y2;
+    cin>>x1>>y1>>x2>>y2;
+    if (x2>y1)
+        cout <<-1<<endl;
+    else
+        cout <<x2<<" "<<y1<<endl;
+    */
+    /*
+    int t;
+    cin>>t;
+    while(t--)
+    {
+
+        int x;
+        cin>>x;
+        if (x<0)
+            cout <<"Division 4"<<endl;
+        else if (x>=0&&x<=1399)
+            cout <<"Division 4"<<endl;
+        else if(x>=1400&& x<=1599)
+            cout <<"Division 3"<<endl;
+        else if (x>=1600&& x<=1899)
+            cout <<"Division 2"<<endl;
+        else if (x>=1900)
+            cout <<"Division 1"<<endl;
+    }
+    */
+    /*
+    long long n;
+    cin>>n;
+    long long s=0;
+    s=n*(n+1)/2;
+    cout <<s<<endl;
+    */
+    /*
+    char c;
+    cin>>c;
+    int line;
+    cin>>line;
+    int x;
+    for (int i=0;i<line;i++)
+    {
+        cin>>x;
+         for (int i=0;i<x;i++)
+        {
+            cout <<c;
+        }
+        cout <<endl;
+    }
+    */
+    /*
+
+    int n;
+    cin>>n;
+    int c=0;
+
+        int x,y,z;
+
+        for (int i=0;i<n;i++)
+        {
+            cin>>x>>y>>z;
+            if (x==1&& y==1 && z==1)
+                c++;
+                else if(x==1&& y==1&z==0)
+            {
+                c++;
+            }
+            else if (x==0&& y==1&& z==1)
+                c++;
+            else if (x==1&& y==0&& z==1)
+                c++;
+
+        }
+
+
+    cout <<c<<endl;
+    */
+    /*
+    int t;
+    while (t--){
+    int n;
+    cin>>n;
+    long long s=1;
+
+    for (int i=1;i<=n;i++)
+    {
+        s*=i;
+    }
+    cout <<s<<endl;
+    }
+    */
+    long long n;
+    cin>>n;
+    long long s=0;
+
+       if (n%2==0)
+            s=n/2;
+        else
+            s=-(n+1)/2;
+
+
+     cout <<s<<endl;
+    return 0;
+}

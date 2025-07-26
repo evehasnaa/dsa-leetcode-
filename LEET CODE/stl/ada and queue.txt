@@ -1,0 +1,114 @@
+#include <iostream>
+#include<queue>
+#include <deque>
+#include<string>
+#include <algorithm>
+using namespace std;
+/*
+void Reverse_Queue_using_Recursion (queue< int> &q)
+{
+    int a = q.front ();
+    if (q.size () == 1)
+        return;
+    q.pop ();
+    Reverse_Queue_using_Recursion (q);
+    q.push (a);
+    return;
+}
+void Show (queue< int> &q)
+{
+    queue< int> p=q;
+    while(!p.empty())
+    {
+        int a = p.front();
+        p.pop();
+        cout << a << " ";
+    }
+}*/
+int main()
+{
+
+
+
+    deque<int>q;
+    bool rev=false;
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        string op;
+        cin>>op;
+
+        int n;
+        if (op=="toFront" )
+        {
+            cin>>n;
+            if (!rev)
+            {
+                q.push_front(n);
+            }
+            else
+            {
+                q.push_back(n);
+            }
+        }
+        else if (op=="push_back")
+        {
+            cin>>n;
+            if (!rev)
+            {
+                q.push_back(n);
+            }
+            else
+            {
+                q.push_front(n);
+            }
+        }
+        else if (op=="front")
+        {
+            if (q.empty())
+                cout <<"No job for Ada?"<<endl;
+
+            else
+            {
+                if (!rev)
+                {
+                    cout <<q.front()<<endl;
+                    q.pop_front();
+                }
+                else
+                {
+                    cout <<q.back()<<endl;
+                    q.pop_back();
+                }
+            }
+        }
+        else if (op=="back")
+        {
+            if (q.empty())
+                cout <<"No job for Ada?"<<endl;
+
+            else
+            {
+                if (!rev)
+                {
+                    cout <<q.back()<<endl;
+                    q.pop_back();
+                }
+                else
+                {
+                    cout <<q.front()<<endl;
+                    q.pop_front();
+                }
+            }
+        }
+        else if (op=="reverse")
+         {
+              rev=!rev;
+         }
+           // reverse(q.begin(), q.end());
+
+    }
+    return 0;
+}
+

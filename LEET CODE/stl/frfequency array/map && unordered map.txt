@@ -1,0 +1,49 @@
+#include <iostream>
+#include<unordered_map>
+#include<map>
+using namespace std;
+
+int main()
+{
+   unordered_map<string ,int >mp({{"ford",20},{"bmw",30}});
+   mp["hasnaa"] =20;
+   mp["ali"]=30;
+   mp["ahmed"]=40;
+   mp.insert({"jaquar",50});
+   cout <<mp.at("hasnaa")<<endl;
+   cout <<mp.at("ali")<<endl;
+   cout <<mp.at("ahmed")<<endl;
+   cout <<mp.at("jaquar")<<endl;
+
+    cout <<mp.begin()->first<<endl;
+cout <<mp.begin()->second<<endl;
+cout <<"###############"<<endl;
+  map<string ,int >mc({{"ford",20},{"bmw",30},{"tolate",100}});
+
+  cout <<mc.begin()->first<<endl;
+
+cout <<mc.begin()->second<<endl;
+
+cout <<mp.max_size()<<endl;
+
+cout <<"map"<<endl;
+
+cout <<mc.max_size()<<endl;
+
+mp["hasnaa"]=70;
+
+cout <<mp.at("hasnaa")<<endl;
+
+mp.insert({"jaquar",90});
+
+cout <<mp.at("jaquar")<<endl;
+
+// mp.insert_or_assign("jaquar",90);
+
+cout <<mp.at("jaquar")<<endl;
+
+for (auto m:mc){
+    cout <<m.first<<" - "<<m.second<<endl;
+}
+    return 0;
+}

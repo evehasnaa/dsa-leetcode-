@@ -1,0 +1,64 @@
+#include <iostream>
+#include<string>
+using namespace std;
+struct node{
+int val;
+     node*next=nullptr;
+};
+class linkedlist{
+    public:
+      node*head=nullptr;
+      void insertatfront(int value){
+          node*newnode= new node;
+          newnode->next= nullptr;
+          newnode->val=value;
+          while (head->next!=nullptr){
+                 head=head->next;
+
+          }
+          head->next=newnode;
+      newnode=head;
+      }
+
+};
+int main()
+{
+   node n;
+   node n1;
+   node n2;
+   node n3;
+
+   n.val=6;
+   n1.val=5;
+   n2.val=9;
+   n3.val=0;
+   n.next =&n1;
+   n1.next=&n2;
+   n2.next=&n3;
+   n3.next=nullptr;
+   cout <<n.val<<endl;
+   cout <<n.next->val<<endl;
+   cout <<n1.next->val<<endl;
+   cout <<n2.next->val<<endl;
+   cout <<n3.next->val<<endl;
+        linkedlist l;
+        l.insertatfront(55);
+
+
+    /*string str;
+    cin>>str;
+    int count1=0,counte;
+            for (int i=0;i<str.size();i++){
+                if (str[i]<='a'&&str[i]>='z'){
+                    count1++;
+                }
+                else if (str[i]<='A'&&str[i]>='Z'){
+                    counte++;
+                }
+            } cout <<counte<<count1<<endl;
+
+
+
+*/
+    return 0;
+}

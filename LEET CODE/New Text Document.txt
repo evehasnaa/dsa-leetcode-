@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool canBeEqual(vector<int>& target, vector<int>& arr) {
+   
+ sort (target.begin(),target.end());
+ sort (arr.begin(),arr.end()) ;
+    return arr==target;
+    }
+};
+target =
+[1,2,3,4]
+arr =
+[2,4,1,3]
+Output
+true
+Expected
+true
+
+
+target =
+[7]
+arr =
+[7]
+target =
+[3,7,9]
+arr =
+[3,7,11]
+Output
+false
+Expected
+false

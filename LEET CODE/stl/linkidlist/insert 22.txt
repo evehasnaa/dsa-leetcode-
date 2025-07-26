@@ -1,0 +1,130 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct node {
+     int data;
+    node*next;
+};
+class linkedlist{
+    public:
+   node *head = NULL;
+   int count;
+
+
+    bool isempty(){
+             if (head==NULL)
+                      return true;
+    else
+        return false;
+    }
+
+
+
+    void display(){
+
+        if (!isempty()){
+        node *temp =head;
+
+        while(temp->data!=NULL){
+
+        cout <<temp->data<<endl;
+
+           temp=temp->next;
+    }
+        }
+        else
+            cout <<"invalid"<<endl;
+    }
+
+    void insertatfront(int value){
+
+        node*newnode=new node;
+        newnode->data=value;
+
+    if (isempty()){
+
+            newnode->next=nullptr;
+            head=newnode;
+        }
+        else
+           newnode->next=head;
+           head=newnode;
+
+    }
+    void inertatend(int value){
+
+        node*newnode=new node;
+        newnode->data=value;
+
+
+    if (isempty()){
+        //insertatfront(value);
+        head=newnode;
+        newnode->next=nullptr;
+    }
+    else {
+        node*temp=head;
+        while (temp->next!=NULL){
+              temp=temp->next;
+        }
+
+        temp->next=newnode;
+       newnode->next=nullptr;
+    }
+
+    }
+    void deleteatbegain()
+    {
+        if (isempty()){
+            cout <<"linked list is empty"<<endl;
+        }
+        else {
+            node*temp=head;
+            head=head->next;
+            delete(temp);
+        }
+    }
+
+
+
+};
+
+
+
+
+
+
+
+
+int main()
+{
+    linkedlist l;
+    l.insertatfront(8);
+    l.deleteatbegain();
+    l.insertatfront(9);
+    l.deleteatbegain();
+    l.insertatfront(6);
+    l.deleteatbegain();
+    l.insertatfront(12);
+    l.deleteatbegain();
+    l.insertatfront(24);
+    l.deleteatbegain();
+    l.display();
+    l.inertatend(99);
+    l.inertatend(44);
+    l.display();
+
+    /*  string str1,str2;
+
+      getline (cin,str1);
+      getline(cin,str2);
+
+       for (int i=0;i<str1.size();i++){
+
+        for (int j =0; j<str2.size();j++){
+            cout <<str1[i]+str2[j];
+        }
+       }
+*/
+    return 0;
+}

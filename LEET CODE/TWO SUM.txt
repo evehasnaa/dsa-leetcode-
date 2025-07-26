@@ -1,0 +1,27 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+    void twoSum(vector<int>& nums, int target) {
+        int indexi=0,indexj=0;
+        for (int i=0;i<nums.size();i++){
+            for (int j=0;j<i;j++){
+                if (nums[i]+nums[j]==target){
+                    indexi=i;
+                     indexj=j;
+                     cout <<indexi<<endl;
+                     cout <<indexj<<endl;
+                }
+            }
+        } cout <<"invalid"<<endl;
+    }
+int main()
+{
+    int target ,size;
+    cin>>target>>size;
+    vector <int>nums(size);
+    for (int i=0;i<nums.size();i++){
+        cin>>nums[i];
+    }
+    twoSum(nums,target);
+    return 0;
+}

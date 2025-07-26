@@ -1,0 +1,102 @@
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+/*
+void solve() {
+    int n, m;
+    cin >> n >> m;
+
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+
+    int l = 0, curr = 0, ans = 0;
+
+    // Sliding window approach
+    for (int r = 0; r < n; r++) {
+        curr += a[r];
+        while (curr > m || (a[r] - a[l] > 1)) {
+            curr -= a[l];
+            l++;
+        }
+
+        ans = max(ans, curr);
+    }
+
+    cout << ans << endl;
+}
+
+
+
+int main()
+{
+    /*
+   int t;
+   cin>>t;
+   while(t--){
+        int n,m;
+    cin>>n>>m;
+    vector<int>a(n);
+
+    int l=0,r=0 ,curr=0,ans=0;
+    for (int i=0;i<n;i++){
+        cin>>a[i];
+    }
+    sort(a.begin(),a.end());
+    for(int i=0;i<n;i++){
+        curr+=a[l];
+
+     while(a[r]-a[l]>1 ||curr>m){
+        curr-=a[r];
+
+        l++;
+     }
+    ans=max(ans,curr);
+    }
+    cout <<ans<<endl;
+
+   }
+   */
+
+int main(){
+    vector <int >n;
+    for (int i=1;v.size()<1000;i++)
+    {
+        int d%=10;
+        if (d==3||i%10==0)
+            continue;
+        else
+            v.push_back(i);
+    }
+    int t;
+    cin>>t;
+    while(t--){
+        
+    }
+return 0;
+}
+int main(){
+    int t;
+    cin>>t;
+    vector<pair<string,string>>v;
+    bool is_here=true;
+    for (int i=0;i<v.size();i++)
+    {
+        string s1,s2;
+        cin>>s1>>s2;
+        
+        if (v[i].first=s1&&v[i].second==s2){
+            is_here=true;
+        }
+        if (is_here)
+            continue;
+        else
+        v.push_back({s1,s2});
+        cout <<v.size()<<endl;
+    }
+return 0;
+}

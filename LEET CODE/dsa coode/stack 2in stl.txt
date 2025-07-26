@@ -1,0 +1,39 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+#include<stack>
+using namespace std;
+int main()
+{
+stack <int> stk;
+ int test ,t,num1;
+ cin>>test;
+while (test--)
+{
+cin>>t;   
+    if(t==1)
+    {
+    cin>>num1;
+    stk.push(num1); 
+    }
+else if (t==2)
+{
+    if(!stk.empty()){
+    stk.pop();
+    }
+}
+else if (t==3) {
+ if(!stk.empty())
+cout<<stk.top()<<endl;
+else 
+cout<<"Empty!"<<endl;
+}
+}
+    return 0;
+}

@@ -1,0 +1,148 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct node {
+     int data;
+    node*next;
+};
+class linkedlist{
+    public:
+   node *head = NULL;
+   int count;
+
+
+    bool isempty(){
+             if (head==NULL)
+                      return true;
+    else
+        return false;
+    }
+
+
+
+    void display(){
+
+        if (!isempty()){
+        node *temp =head;
+
+        while(temp->data!=NULL){
+
+        cout <<temp->data<<endl;
+
+           temp=temp->next;
+    }
+        }
+        else
+            cout <<"invalid"<<endl;
+    }
+
+    void insertatfront(int value){
+
+        node*newnode=new node;
+        newnode->data=value;
+
+    if (isempty()){
+
+            newnode->next=nullptr;
+            head=newnode;
+        }
+        else
+           newnode->next=head;
+           head=newnode;
+
+    }
+    void inertatend(int value){
+
+        node*newnode=new node;
+        newnode->data=value;
+
+
+    if (isempty()){
+        //insertatfront(value);
+        head=newnode;
+        newnode->next=nullptr;
+    }
+    else {
+        node*temp=head;
+        while (temp->next!=NULL){
+              temp=temp->next;
+        }
+
+        temp->next=newnode;
+       newnode->next=nullptr;
+    }
+
+    }
+    void deleteatbegain()
+    {
+        if (isempty()){
+            cout <<"linked list is empty"<<endl;
+        }
+        else {
+            node*temp=head;
+            head=head->next;
+            delete(temp);
+        }
+    }
+     void deleteAtend(){
+          node*run=head;
+     if (isempty()){
+        cout <<"is empty"<<endl;
+     }
+     else if (head->next==nullptr){
+         deleteatbegain();
+
+     }
+     else {
+        if (head->next->next==nullptr){
+
+            run=run->next;
+            head->next=nullptr;
+            delete(run);
+        }
+        else
+        while (run->next->next!=nullptr){
+            run=run ->next;
+        }
+        run->next=nullptr;
+        delete(run);
+     }
+
+     }
+     void searchitem(int key){
+     
+     }
+
+
+};
+
+
+
+
+
+
+
+
+int main()
+{
+    linkedlist l;
+    l.insertatfront(8);
+    l.deleteatbegain();
+    l.insertatfront(9);
+    l.deleteatbegain();
+    l.insertatfront(6);
+    l.deleteatbegain();
+    l.insertatfront(12);
+    l.deleteatbegain();
+    l.insertatfront(24);
+    l.deleteatbegain();
+    l.display();
+    l.inertatend(99);
+    l.deleteAtend();
+    l.inertatend(44);
+    l.deleteAtend();
+    l.display();
+
+
+    return 0;
+}

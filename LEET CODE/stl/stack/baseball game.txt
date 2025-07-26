@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+#include <stack>
+#include <string>
+using namespace std;
+
+class Solution {
+public:
+    int calPoints(vector<string>& operations) {
+        stack<int> s;
+        for (int i = 0; i < operations.size(); i++) {
+            try {
+                if (isdigit(operations[i][0]) || (operations[i][0] == '-' && operations[i].size() > 1)) {
+                    s.push(stoi(operations[i]));
+                } else {
+                    switch (operations[i][0]) {
+                        case 'C':
+                            if (!s.empty()) s.pop();
+                            break;
+                        case 'D':
+                            if (!s.empty()) s.push(2 * s.top());
+                            break;
+                        case '+': {
+                            if (s.size() >= 2) {
+                                int top1 = s.top(); s.pop();
+                                int top2 = s.top();
+                                s.push(top1);
+                                s.push(top1 + top2);
+                            }
+                            break;
+                        }
+                        default:
+                            cerr << "Unknown operation: " << operations[i] << endl;
+                            break;
+                    }
+                }
+            } catch (const invalid_argument& e) {
+                cerr << "Invalid argument: " << operations[i] << " cannot be converted to an integer." << endl;
+            } catch (const out_of_range& e) {
+                cerr << "Out of range: " << operations[i] << " is out of integer range." << endl;
+            }
+        }
+        int sum = 0;
+        while (!s.empty()) {
+            sum += s.top();
+            s.pop();
+        }
+        return sum;
+    }
+};
+
+int main() {
+    Solution sol;
+    vector<string> operations = {"5", "2", "C", "D", "+"};
+    cout << sol.calPoints(operations) << endl; // Output should be 30
+    return 0;
+}
+ try و catch في الكود يساعد في التعامل مع الأخطاء التي قد تحدث أثناء تنفيذ البرنامج. في حالتك، استخدمت catch لالتقاط نوعين من الاستثناءات: invalid_argument و out_of_range. دعني أشرح لك السبب بالتفصيل:
+
+1. invalid_argument
+هذا الاستثناء يتم إلقاؤه عندما تحاول تحويل سلسلة نصية إلى عدد صحيح باستخدام stoi، ولكن السلسلة النصية لا تحتوي على قيمة عددية صالحة. على سبيل المثال، إذا كانت السلسلة النصية تحتوي على حروف أو رموز غير رقمية، فإن stoi لن يتمكن من تحويلها إلى عدد صحيح، وبالتالي سيتم إلقاء استثناء invalid_argument.
+
+2. out_of_range
+هذا الاستثناء يتم إلقاؤه عندما تكون القيمة العددية التي تحاول تحويلها باستخدام stoi خارج نطاق القيم التي يمكن تمثيلها باستخدام نوع البيانات int. على سبيل المثال، إذا كانت السلسلة النصية تحتوي على رقم كبير جدًا أو صغير جدًا بحيث لا يمكن تمثيله كعدد صحيح، فإن stoi سيقوم بإلقاء استثناء out_of_range.
+
+لماذا استخدمت catch؟
+استخدام catch يسمح لك بالتعامل مع هذه الأخطاء بطريقة مناسبة بدلاً من أن يتوقف البرنامج فجأة. في الكود الخاص بك، تقوم بطباعة رسالة خطأ توضح نوع الخطأ والقيمة التي تسببت فيه. هذا يساعد في تشخيص المشكلة وفهم السبب وراء الخطأ، مما يسهل عليك تصحيح الأخطاء في البيانات المدخلة أو في الكود نفسه.
+
+مثال توضيحي
+try {
+    // محاولة تحويل السلسلة النصية إلى عدد صحيح
+    int number = stoi(operations[i]);
+    s.push(number);
+} catch (const invalid_argument& e) {
+    // التعامل مع الخطأ إذا كانت السلسلة النصية غير صالحة
+    cerr << "Invalid argument: " << operations[i] << " cannot be converted to an integer." << endl;
+} catch (const out_of_range& e) {
+    // التعامل مع الخطأ إذا كانت القيمة خارج النطاق
+    cerr << "Out of range: " << operations[i] << " is out of integer range." << endl;
+}

@@ -1,0 +1,76 @@
+#include <iostream>
+#include<string>
+#include<unordered_map>
+using namespace std;
+
+int hash_fundtion(string str,int n){
+        int sum=0;
+        for (int i=0;i<(int)str.length();i++){
+           sum= (sum*26) +(str[i]-'a');
+        }
+        return sum%n;
+        }
+
+void test_map (){
+
+    unordered_map<string ,int>mp;
+    mp["hasnaa"]=10;
+    mp["ali"]=20;
+    mp["hesham"]=30;
+    for (auto & i:mp){
+         cout <<i<<endl;
+    }
+   // print(mp);
+}
+
+
+
+
+/*
+int sum(int arr[],int n){
+
+    if (n==0 ) {
+
+
+          return 0;
+    }
+
+   return  arr[n-1]+sum(arr,n-1);
+
+} *
+
+  int getsum (int arr[],int s,int l){
+
+        if (s>=l){
+            return 0;
+        cout <<endl;
+        }
+        return arr[s]+getsum(arr,s+1,l);
+  }*/
+int main()
+{
+   cout << hash_fundtion("abc",7)<<endl;
+   cout <<hash_fundtion("abcdef",7)<<endl;
+   cout <<hash_fundtion("abcde",7)<<endl;
+   cout <<hash_fundtion("abcde",70)<<endl;
+   cout <<hash_fundtion("bcdea",7)<<endl;
+   cout <<hash_fundtion("ali",7)<<endl;
+   cout <<hash_fundtion("hasnaa",7)<<endl;
+   cout <<hash_fundtion("jon smith",7)<<endl;
+   test_map();
+
+
+     /*
+    int n;
+    cin>>n;
+
+    int arr[n];
+    for (int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+//cout <<sum(arr,n)<<endl;
+cout <<getsum(arr,0,n)<<endl;;
+*/
+    return 0;
+
+}

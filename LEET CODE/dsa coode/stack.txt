@@ -1,0 +1,57 @@
+/******************************************************************************
+
+                              Online C++ Compiler.
+               Code, Compile, Run and Debug C++ program online.
+Write your code in this editor and press "Run" button to compile and execute it.
+
+*******************************************************************************/
+
+#include <iostream>
+using namespace std;
+struct stack {
+    
+    int arr[4];
+    int top=-1;
+    bool isempty (){
+      return top==-1;
+        
+    }
+    void puch(int value)
+    {
+       // if(isempty())
+         if(top<3)
+        {
+            top++;
+            arr[top]=value;
+        }
+        else cout<<"stack underflaw\n";
+        //}
+        
+    }
+    void pop (){
+        if(!isempty()){
+            top--;
+        }
+        else cout<<"stack ovflaw\n";
+    }
+    int peak(){
+        if(isempty()) return -1;
+        else
+        return arr[top];
+    }
+
+};
+int main()
+{
+stack s;
+s.puch(55);
+s.puch(44);
+s.puch(3);
+s.puch(10);
+   while (!s.isempty()){
+       cout<<s.peak()<<endl;
+       s.pop();
+   }
+
+    return 0;
+}

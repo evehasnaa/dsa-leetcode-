@@ -1,0 +1,56 @@
+//ther are an condition is the bounds of n,r is (0,30) how can i do that in my code
+#include <iostream>
+#include <iomanip>
+#include<string>
+#include <algorithm>
+using namespace std;
+
+string addbinary (string a,string b)
+{
+    int i=a.size()-1;
+    int j=b.size()-1;
+    int sum=0,car=0;
+    string res;
+
+    while (i>=0||j>=0)
+    {
+        sum=car;
+        if (i>=0) sum+=a[i--]-'0';
+        if (j>=0) sum+=a[j--]-'0';
+
+        res +=to_string(sum%2);
+        car=sum/2;
+
+    }
+    if (car!=0) res+='1';
+    reverse(res.begin(),res.end());
+    return res;
+
+
+}
+int main()
+{
+
+    int num,cou=0,bin[100],mx=0;
+    cin>>num;
+    for (int i=0; num>0; i++)
+    {
+        bin[i]=num%2;
+        num/=2;
+        cou++;
+    }
+    for (int i=cou-1; i>=0; i--)
+    {
+        cout <<bin[i];
+        if (bin[i]==1)
+            mx++;
+    }
+    cout <<endl<<mx<<endl;
+    string a,b;
+    cin>>a>>b;
+   string res=addbinary(a,b);
+
+    cout <<res<<endl;
+    return 0;
+}
+

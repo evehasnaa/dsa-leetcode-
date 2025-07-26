@@ -1,0 +1,102 @@
+#include <iostream>
+#include <string>
+using namespace std;
+struct node {
+
+node*next=nullptr;
+int data ;
+
+};
+node*head=NULL;
+node*create(int value){
+             node*newnode=new node;
+             newnode->data =value;
+             newnode->next=nullptr;
+             return newnode;
+}
+void insertnode(int value){
+
+            node*newnode=new node;
+            newnode->data =value;
+
+            newnode->next=nullptr;
+            if (head ==nullptr){
+               head =newnode;
+               newnode->next=nullptr;
+            }
+             else
+            {
+            node* last;
+            last=head;
+            while (last->next!=NULL){
+                    last=last->next;
+
+            }
+            last->next=newnode;
+            newnode=nullptr;
+
+
+
+            }
+}
+ void display(){
+if (head==null){
+    cout <<"invalid"<<endl;
+    
+}
+else {
+          while(){
+    
+             }
+               }
+
+
+}
+int main()
+{
+
+   
+create(77);
+insertnode(5);
+
+       insertnode(5);
+       insertnode(6);
+       insertnode(8);
+       insertnode(9);
+display ();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* int test ;
+cin >>test;
+      while (test --)
+        {
+      string str;
+      getline (cin,str);
+      int len=str.length();
+          if (len<10)  cout <<str<<endl;
+          else {
+                char c,s;
+              c=str.back();
+              s=str.front();
+              cout <<s<< len-2<<c<<endl;
+          }
+
+       }
+       */
+
+    return 0;
+}

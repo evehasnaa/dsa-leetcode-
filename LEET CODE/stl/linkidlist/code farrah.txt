@@ -1,0 +1,310 @@
+#include<iostream>
+using namespace std;
+
+struct node
+{
+	int data;
+	node* next;
+};
+class list
+{
+public:
+	int count = 0;
+	node* head = new node();
+	bool empty()
+	{
+		if (head == NULL)
+		{
+			return true;
+		}
+		else
+			return false;
+	}
+	void insert_in_begin(int x)
+	{
+		node* newnode = new node();
+		newnode->data = x;
+		if (empty())
+		{
+			newnode->next = NULL;
+			head = newnode;
+
+		}
+		else
+		{
+
+			newnode->next = head;
+			head = newnode;
+
+		}
+		count++;
+	}
+	void display()
+	{
+		if (head == NULL)
+		{
+			cout << " is empty list " << endl;
+		}
+		else
+		{
+			node* temp = head;
+			while (temp->next!= NULL)
+			{
+				cout << temp->data << "  ";
+				temp = temp->next;
+			}
+		}
+
+	}
+	void insert_end(int x)
+	{
+		if (empty())
+		{
+			insert_in_begin(x);
+		}
+		else
+		{
+			node* temp = head;
+			
+			while (temp->next!= NULL)
+			{
+				
+				temp = temp->next;
+
+
+			}
+			node* newnode = new node();
+			newnode->data = x;
+			newnode->next = NULL;
+			temp->next = newnode;
+		}
+	}
+    void insert_before(int search, int x)
+{
+	node* temp = head;
+	if (empty())
+	{
+		cout << " empty " << endl;
+		insert_in_begin(x);
+	}
+	if (isfound(search))
+	{
+		
+		while (temp != NULL && temp->next->data != search)
+		{
+
+			temp = temp->next;
+		}
+		node* newnode = new node();
+		newnode->data = x;
+		newnode->next = temp->next;
+		temp->next = newnode;
+	}
+	else
+	{
+		cout << " is not found " << endl;
+	}
+	
+}
+bool isfound(int key)
+{
+	bool found = false;
+	node* temp = head;
+	while (temp != NULL)
+	{
+		if (temp->data == key)
+			found = true;
+		temp = temp->next;
+	}
+	return found;
+
+}
+void delet_begin()
+{
+    if(empty())
+    {
+        cout<<" is empty "<<endl;
+    }
+    else
+    {
+        node *temp=head;
+        head=head->next;
+        delete(temp);
+    }
+}
+void delet_end()
+
+    {
+		node* t = head;
+		if (empty())
+		{
+			cout << " empty " << endl;
+		}
+		else
+		{
+			if (head->next == NULL)
+			{
+				delet_begin();
+			}
+			else if(head->next->next== NULL)
+			{ 
+				
+				t = t->next;
+				head->next = NULL;
+				delete(t);
+				
+			}
+			else 
+			{
+			
+				
+				while (t->next->next != NULL)
+				{
+					t = t->next;
+				}
+			//	node* r = t->next;
+				t->next = NULL;
+				delete(t->next);
+			}
+        }
+   }
+void search(int item)
+	{
+		node* t = head;
+		while (t != NULL && t->data != item)
+		{
+			t = t->next;
+		}
+		if (t == NULL)
+		{
+			cout << " is not found " << endl;
+		}
+		else if(t->data==item)
+		{
+			cout << t->data << " ";
+		}
+		else
+		{
+			cout << endl;
+		}
+	}
+    
+void delete_in(int position)
+	{
+		if(empty())
+		{
+		    cout<<" is empty"<<endl;
+		}
+		else if(head->next==NULL)
+		{
+		    if(position==1)
+		    delet_begin();
+		    else if(position<1)
+		    cout<<" invalid "<<endl;
+		    else
+		    cout<<" error "<<endl;
+		}
+
+        else
+        {
+            if(position==1)
+		    delet_begin();
+		    else if(position<1)
+		    cout<<" invalid "<<endl;
+		    else
+		    {
+		        int i=1;
+		        node *temp=head;
+		        while(i<position-1 && temp->next!=NULL)
+		        {
+		            temp=temp->next;
+		            i++;
+		        }
+		        if(i<position-1)
+		        {
+		            cout<<" is not found "<<endl;
+		        }
+		        if( temp->next!=NULL)
+		        {
+		            node *r=temp->next;
+		            temp->next=r->next;
+		            delete(r);
+		        }
+		    }
+        }
+	}
+   int larger_number()
+   {
+       node *temp=head;
+       int max=temp->data;
+       while(temp!=NULL)
+       {
+           if(max<temp->data)
+           {
+               max=temp->data;
+           }
+           temp=temp->next;
+       }
+   
+   return max;
+   }
+   void reverse()
+	{
+	     node* prev = nullptr;
+        node* curr = head;
+        node* next = nullptr;
+
+        while (curr) {
+            next = curr->next;  
+            curr->next = prev;  
+            prev = curr;    
+            curr = next;        
+        }
+        head = prev; 
+void  palindrom()
+{
+    list l;
+     
+    
+    
+    
+     
+}
+};
+int main()
+{
+	list l;
+	l.insert_in_begin(1);
+	l.insert_in_begin(2);
+	l.insert_in_begin(3);
+	l.insert_in_begin(4);
+	l.insert_in_begin(5);
+	l.insert_in_begin(6);
+	l.display();
+		cout<<endl<<"+++++++++++"<<endl;
+	l.insert_before(1,11);
+	l.insert_before(3,33);
+	l.insert_before(7,33);
+	l.display();
+	cout<<endl<<"+++++++++++"<<endl;
+	l.delet_begin();
+	l.delet_begin();
+	l.display();
+		cout<<endl<<"+++++++++++"<<endl;
+		l.delet_end();
+		
+	
+		
+		l.display();
+		cout<<endl<<"+++++++++++"<<endl;
+	l.delete_in(4);
+	//l.delete_in(2);
+	l.display();
+	cout<<endl<<"+++++++++++"<<endl;
+	
+	cout<<" larger number "<<l.larger_number()<<endl;
+		cout<<endl<<"+++++++++++"<<endl;
+		l.reverse();
+		l.display();
+		l.palindrom();
+}

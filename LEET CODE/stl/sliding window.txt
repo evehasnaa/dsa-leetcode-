@@ -1,0 +1,25 @@
+/*
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    vector<int >arr(n);
+    for (int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    int sum=0;
+    for (int i=0;i<m;i++)
+        sum+=arr[i];
+    int mx=sum;
+    for (int i=m;i<n;i++)
+    {
+        sum+=arr[i];
+        sum-=arr[i-m];
+        mx=max(mx,sum);
+    }
+
+    cout << " max sum is :"<<mx<<endl;
+    return 0;
+}
+*/

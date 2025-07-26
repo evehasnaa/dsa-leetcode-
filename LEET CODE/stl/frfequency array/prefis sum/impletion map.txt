@@ -1,0 +1,116 @@
+#include <iostream>
+#include <map>
+#include<string>
+using namespace std;
+/*
+int main()
+{
+    map<string , int > mp;
+    mp["ahmed"]=30;
+
+        cout <<mp["ahmed"] <<endl;
+
+    if (mp.find ("ahmed")==mp.end())
+        cout <<"not found"<<endl;
+    else
+        cout <<"find"<<endl;
+
+
+        string x= "hasnaa";
+
+        map <string,int >mps;
+       // mps[x]=40;
+        for (int i=0;i<x.size();i++)
+        {
+            mps[x]++;
+        }
+        cout <<"string size "<<x.size()<<endl;
+
+        for (auto it:mps)
+        {
+            cout <<it.first<<" "<<it.second<<endl;
+        }
+
+
+        map<char ,int >m;
+
+      if (  m['h'] ==0)
+           cout <<"not found"<<endl;
+        else
+
+    return 0;
+}
+*/
+
+
+
+
+
+
+void space (int s)
+{       if (s==0)
+            return;
+            cout <<" ";
+            space (s-1);
+
+}
+void star (char t)
+{
+    if (t==0)
+        return;
+        cout <<"*";
+        star(t-1);
+}
+void pyramid (int n ,int i )
+{
+
+
+    if (n==0)
+        return;
+        space(n-1);
+    star(i-n+1);
+    space(i-n+1);
+    cout <<endl;
+    pyramid(n-1,i);
+
+}
+
+void reverse_pyramid(int n,int i)
+{
+     if (n==0)
+        return;
+
+
+
+        star(n-i); //4,3,2,1
+        space(n-(n-i+1));
+        cout <<endl;
+        pyramid(n-1,i);
+
+}
+void py(int n)
+{
+    for (int i=1;i<=n;i++)
+    {
+        for (int k=1;k<n;k++)//spces    1,2,3,4
+          cout<<" ";
+         for (int j=n;j<=i;j++) // 5,4,3,2,1
+         {
+             cout <<"*";
+         }
+         cout <<endl;
+
+
+    }
+}
+int main ()
+{
+    int n;
+    cin>> n;
+    pyramid(n,n);
+    cout <<endl;
+   reverse_pyramid(n,n);
+   py(n);
+return 0;
+}
+

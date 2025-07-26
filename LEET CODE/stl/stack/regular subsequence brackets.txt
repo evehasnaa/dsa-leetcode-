@@ -1,0 +1,43 @@
+#include <iostream>
+#include<stack>
+#include<string>
+#include<bits/stdc++.h>
+#include<stdio.h>
+using namespace std;
+
+int isvalid (string s)
+{   int ctr=0;
+    stack <char>st;
+    for (char ch:s)
+    {
+        if (ch=='(')
+                st.push(ch);
+        else
+        {
+
+             if (!st.empty())
+              {
+                  st.pop();
+                   ctr++;
+              }
+
+
+        }
+
+    }
+         return ctr;
+}
+int main()
+{
+    string s;
+
+        cin>>s;
+        int ctr=isvalid(s);
+cout <<ctr*2<<endl;
+    return 0;
+}
+output
+(()))(
+4
+((()())
+6

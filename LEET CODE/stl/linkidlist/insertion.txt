@@ -1,0 +1,104 @@
+#include <iostream>
+
+using namespace std;
+struct node{
+int data;
+node*next;
+
+};
+class linkedlist{
+public:
+    node*head=nullptr;
+    int count=0;
+
+    void insert_at_begain(int value){
+
+     node*newnode=new node; //create e node
+
+     newnode->data=value;//insert data
+
+     if (head==nullptr){   //نربط ال نود ببعضها
+        head=newnode;
+     }
+     else {
+        newnode->next=head;
+        head=newnode;
+     }
+count++;
+    }
+
+    void insertatend(int value){
+
+    node *newnode=new node;
+    newnode->data=value;
+    node*temp=head;
+    if (head==nullptr){
+        head=newnode;
+    }
+    else {
+ while (temp->next!=nullptr)
+    {
+    temp=temp->next;
+
+    }
+      temp ->next=newnode;
+
+    }
+    }
+    void display()
+    {
+    node *temp=head;
+
+
+     while (temp!=nullptr)
+    {
+    cout <<temp->data<<endl;
+        temp=temp->next;
+
+    }
+
+    }
+};
+int main()
+{
+
+
+     linkedlist l;
+    l.insertatend(1);
+    l.insertatend(2);
+    l.insertatend(3);
+    l.insertatend(4);
+     l.display();
+    l.insert_at_begain(55);
+    l.insert_at_begain(8);
+    l.insert_at_begain(77);
+    l.display();
+
+/*
+    caps->data=1;
+    caps1->data=2;
+    caps2->data=3;
+    caps3->data=4;
+    caps4->data=5;
+
+    caps->next=caps1;
+    caps1->next=caps2;
+    caps2->next=caps3;
+    caps3->next=caps4;
+    caps4->next=nullptr;
+
+    //cout <<caps1->next->next->next->next->data;
+
+    cout << caps->data<<endl;
+    cout << caps1->data<<endl;
+    cout << caps2->next->data<<endl;
+    cout << caps3->next->data<<endl;
+    cout << caps4->next->data<<endl;
+
+   while (caps!=nullptr){
+    cout <<caps->data<<endl;
+    caps=caps->next;
+
+   }  */
+    return 0;
+}
